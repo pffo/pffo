@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/vp_recommend_homepage"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        ></android.support.v4.view.ViewPager>
+
+    <LinearLayout
+        android:id="@+id/ll_dots_recommecd_homepage"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="8dp"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:clickable="true"
+            android:padding="5dp"
+            android:visibility="invisible"
+            android:src="@drawable/dots"/>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:clickable="true"
+            android:padding="5dp"
+            android:src="@drawable/dots"/>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:clickable="true"
+            android:padding="5dp"
+            android:src="@drawable/dots"/>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:clickable="true"
+            android:padding="5dp"
+            android:src="@drawable/dots"/>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:clickable="true"
+            android:padding="5dp"
+            android:src="@drawable/dots"/>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:clickable="true"
+            android:padding="5dp"
+            android:visibility="invisible"
+            android:src="@drawable/dots"/>
+    </LinearLayout>
+
+</RelativeLayout>

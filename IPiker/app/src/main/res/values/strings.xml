@@ -1,0 +1,39 @@
+<resources>
+    <string name="app_name">IPikerFFO</string>
+    <string name="stop">stop</string>
+    <string name="record">record</string>
+
+    <string name="login_account">账号：</string>
+    <string name="login_password">密码：</string>
+    <string name="login_accoutn_hint">手机号或者邮箱</string>
+    <string name="login_password_hint">密码</string>
+    <string name="forget_password">忘记密码?</string>
+    <string name="register">注册</string>
+    <string name="login">登录</string>
+
+    <string name="homepage">主页</string>
+    <string name="reportpage">举报</string>
+    <string name="personalpage">个人</string>
+
+
+
+    <string name="header_hint_normal">下拉刷新</string>
+    <string name="header_hint_ready">松开刷新数据</string>
+    <string name="header_hint_refreshing">正在刷新...</string>
+    <string name="header_hint_loading">正在加载...</string>
+    <string name="header_hint_loaded">加载完成</string>
+    <string name="header_hint_loaded_fail">加载失败</string>
+    <string name="header_last_time">上次更新时间：</string>
+    <string name="footer_hint_normal">加载完成</string>
+    <string name="footer_hint_fail">加载失败，请重试</string>
+    <string name="footer_hint_complete">已无更多数据</string>
+    <string name="footer_hint_click">加载更多</string>
+    <string name="footer_hint_release">松开加载更多</string>
+    <string name="footer_hint_ready">松开载入更多</string>
+    <string name="never_refresh">从未刷新</string>
+    <string name="refresh_justnow">刚刚刷新</string>
+    <string name="refresh_minutes_ago">%1s分钟之前刷新</string>
+    <string name="refresh_hours_ago">%1s小时之前刷新</string>
+    <string name="refresh_days_ago">%1s天之前刷新</string>
+
+</resources>

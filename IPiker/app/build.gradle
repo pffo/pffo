@@ -1,0 +1,93 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 25
+    buildToolsVersion "25.0.0"
+    defaultConfig {
+        applicationId "com.ffo.ipiker"
+        minSdkVersion 19
+        targetSdkVersion 25
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        // dex突破65535的限制
+        multiDexEnabled true
+    }
+    buildTypes {
+        release {
+            // 不显示Log
+            //buildConfigField "boolean", "LOG_DEBUG", "false"
+            //是否进行zipalign优化
+            zipAlignEnabled true
+            // 移除无用的resource文件
+            shrinkResources true
+            //是否混淆
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+        //apk命名统一为：flavorName_versionName_buildTime
+        applicationVariants.all { variant ->
+            variant.outputs.each { output ->
+                def outputFile = output.outputFile
+                if (outputFile != null && outputFile.name.endsWith('.apk')) {
+                    def flavorName = variant.flavorName.startsWith("_") ? variant.flavorName.substring(1) : variant.flavorName
+                    def apkFile = new File(
+                            output.outputFile.getParent(),
+                            "${flavorName}_${variant.versionName}.apk")
+                    output.outputFile = apkFile
+                }
+            }
+        }
+    }
+
+    sourceSets {
+        main {
+            jniLibs.srcDirs = ['libs']
+        }
+    }
+
+    productFlavors{
+        IPiker{
+            versionCode buildTime().toInteger()
+            versionName "01.01.P-${buildTime()}"
+//            applicationId "com.ffo.ipiker.z"
+//            manifestPlaceholders = [app_name:"ipiker.z" ,icon: "@mipmap/logo"]
+            //在java代码中具体的使用方式为：context.getResources().getString(R.string.strKey);
+            resValue("string" , "strKey","z版本")
+        }
+
+//        hchtest{
+//            versionCode buildTime().toInteger()
+//            versionName "02.01.P-${buildTime()}"
+//            applicationId "com.ffo.ipiker.hchtest"
+//            manifestPlaceholders = [app_name:"ipiker.hchtest",icon: "@mipmap/ic_launcher"]
+//            resValue("string" , "strKey","hchtest")
+//        }
+
+    }
+
+    lintOptions {
+        checkReleaseBuilds false
+        abortOnError false
+    }
+}
+
+dependencies {
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
+    compile 'com.android.support:appcompat-v7:25.0.0'
+    compile 'com.android.support.constraint:constraint-layout:1.0.0-beta3'
+    testCompile 'junit:junit:4.12'
+    //    compile 'com.android.support:recyclerview-v7:26.0.0-alpha1'
+    compile 'com.android.support:recyclerview-v7:25.0.0'
+    compile 'de.hdodenhof:circleimageview:2.1.0'
+}
+
+//获取当前时间
+def buildTime() {
+    def date = new Date()
+    def formattedDate = date.format('yyMMddhhmm')
+    return formattedDate
+}
